@@ -1,0 +1,495 @@
+/*
+@charset "UTF-8";
+* {
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  color: #333333;
+  margin: 0;
+  padding: 0; 
+}
+html, body {
+  overflow-y: hidden;
+}
+a {
+  color: #fff;
+  transition: 0.3s; 
+  text-decoration: none; 
+}
+a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+  color: #000; 
+}
+li {
+  list-style-type: none; 
+}
+i {
+  color: #fff;
+}
+.left-block {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 18%;
+  overflow: auto;
+  background: #1d1d1e;
+  z-index: 1;
+}
+.right-block {
+  position: fixed;
+  
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 82%;
+  overflow: scroll;
+  background: #e5e5e8;
+  z-index: 1;
+}
+.name-of-project {
+  margin-top: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 32px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.fa-phoenix-squadron {
+  color: #ff7d14;
+  font-size: 36px;
+}
+.btn {
+  display:inline-block;
+  background-color:#d63d41;
+  border-radius:7px;
+  border: 1px solid #d02718;
+  cursor: pointer;
+  padding:4px 7px;
+  font-size:15px;
+  color: #f9f9f9;
+  transition: 0.3s;
+}
+.btn-r:hover {
+  background-color:#e5e5e8;
+  color: #000;
+}
+*/
+
+/* Таблица */
+/*
+.table-block {
+  margin-left: 100px;
+  margin-top: 20px;
+  table-layout: auto;
+}
+.table {
+  background: #f5ffff;
+  border-collapse: collapse;
+  text-align: left;
+  table-layout: auto;
+}
+.table th {
+  background: #424242;
+  color: white;
+  min-width: 80px;
+  padding: 10px 15px;
+  transition: 0.3s;
+}
+.table th:hover {
+  background: #303030;
+}
+.table td {
+  border: 1px solid #e3eef7;
+  padding: 10px 15px;
+  position: relative;
+  transition: all 0.5s ease;
+}
+.table tbody:hover tr:hover td {
+  background: #edf5fc;
+}
+.right-block-title {
+  margin-top: 70px;
+  margin-left: 100px;
+  font-size: 30px;
+}
+
+*/
+/*  отображение списка баз данных */
+.btn_create_database {
+  margin-bottom: 10px;
+}
+.btn_create_database:hover {
+  background: #1d1d1e;
+  text-decoration: none;
+}
+.btn_create_database:active {
+  position:relative;
+  top:1px;
+}
+/*
+.form-create-db .select-add-select-db {
+  margin-left: 15px;
+}
+.form-create-db button {
+  padding:4px 7px;
+  background-color:#d63d41;
+  border-radius:7px;
+  border: 1px solid #d02718;
+  color: #fff;
+  width: 100px;
+  margin-top: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.form-create-db button:hover {
+  background-color:#e5e5e8;
+  color: #000;
+}
+.form-create-db {
+  display: block;
+  margin-top: 30px;
+  margin-left: 100px;
+  width: 429px;
+}
+.navigation_database {
+  margin-top: 50px;
+  margin-left: 70px;
+}
+.database {
+  margin-top: 5px;
+}
+.list_database .fa-database, .fa-eye {
+  font-size: 18px;
+  margin-right: 10px;
+}
+.database-link {
+  font-size: 18px;
+}
+.list_database .delete_database {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #ef3237;
+  cursor: pointer;
+}
+*/
+
+/* создание таблиц */
+/*
+.open_table_i {
+  color: #000;
+  margin-right: 10px;
+  cursor: pointer;
+  position: relative;
+  top: -0.3px;
+}
+.struct_table {
+  color: #000;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.delete_table {
+  position: relative;
+  top: 1.5px;
+  font-size: 20px;
+  color: #ef3237;
+  cursor: pointer;
+}
+.add-table-btn {
+  margin-top: 10px;
+  margin-left: 100px;
+  padding: 5px 10px;
+  color: #fff;
+  border: none;
+  background: #d63d41;
+  border-radius: 8px;
+  border: 1px solid #d02718;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.add-table-btn:hover {
+  color: #000;
+  background: #e5e5e8;
+}
+.create-table-fblock {
+  margin-top: 20px;
+  margin-left: 100px;
+}
+.create-table-fblock .input-name-table {
+  height: 22px;
+}
+.create-table-fblock .input-count-rows-table {
+  margin-left: 10px;
+  width: 130px;
+  height: 22px;
+}
+.btn-create-table-cont {
+  margin-top: 20px;
+  margin-left: 50px;
+  padding: 3px 10px;
+  color: #fff;
+  border: none;
+  background: #d63d41;
+  border-radius: 8px;
+  border: 1px solid #d02718;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.btn-create-table-cont:hover {
+  background: #e5e5e8;
+  color: #000;
+}
+.create-table-block2 {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 100px;
+}
+.name-table-p, .table-add-rows-p {
+  display: inline-block;
+}
+.add-rows-inp {
+  width: 40px;
+}
+.table-add-table {
+  table-layout: auto;
+  margin-left: 50px;
+}
+.table-add-table input, .table-add-table select {
+  width: 125px;
+}
+.lets-go-back-btn {
+  margin-top: 20px;
+  margin-left: 100px;
+}
+.lets-go-back-btn:hover {
+  background: #e5e5e8;
+  color: #000;
+}
+*/
+
+/* Изменение таблиц */
+
+/*
+.change_stb {
+  margin-left: 15px;
+  position: relative;
+  top: -2px;
+  color: #000;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.delete_stb {
+  font-size: 20px;
+  color: #ef3237;
+  cursor: pointer;
+}
+.add-stb-btn, .add-stb-btn-fin, .change-stb-btn, .change-stb-btn-back {
+  margin-left: 100px;
+  margin-top: 20px;
+}
+.add-stb-btn:hover, .add-stb-btn-fin:hover, .change-stb-btn:hover, .change-stb-btn-back:hover {
+  background: #e5e5e8;
+  color: #000;
+}
+.change-stb-btn-back {
+  margin-left: 20px;
+}
+*/
+
+
+
+
+/* Работа с записями */
+
+/*
+.add-row-btn, .fin-add-row-btn, .back-table-btn {
+  margin-left: 100px;
+  margin-top: 20px;
+}
+.add-row-btn:hover, .fin-add-row-btn:hover, .back-table-btn:hover {
+  background: #e5e5e8;
+  color: #000;
+}
+.delete_row {
+  font-size: 20px;
+  color: #ef3237;
+  cursor: pointer;
+}
+.change_row {
+  margin-left: 15px;
+  position: relative;
+  top: -2px;
+  color: #000;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.cancellation-i {
+  font-size: 20px;
+  color: #ef3237;
+  cursor: pointer;
+}
+.agree-i {
+  margin-right: 15px;
+  margin-left: 15px;
+  font-size: 18px;
+  color: #62f442;
+  cursor: pointer;
+}
+*/
+
+
+/* View  */
+
+/*
+.view-link {
+  color: #333333;
+  cursor: pointer;
+}
+.view-link:hover {
+  color: #333333;
+}
+.back-btn-open-tb {
+  margin-left: 100px;
+  margin-top: 20px;
+}
+.back-btn-open-tb:hover {
+  background: #e5e5e8;
+  color: #000;
+}
+.sql-code-p {
+  width: 800px;
+  margin-top: 20px;
+  margin-left: 100px;
+  color: #000;
+}
+.delete_view, .delete_trig, .delete_proc {
+  margin-left: 30px;
+  font-size: 20px;
+  color: #ef3237;
+  cursor: pointer;
+}
+*/
+
+
+/* sql block */
+
+/*
+.sql-block-open, .sql-block-open-visible {
+  left: 50%;
+  margin-left: -37px;
+  top: -62px;
+  padding: 10px 20px 5px 20px;
+  position: absolute;
+  border: 1px solid black;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  background: #1d1d1e;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 2;
+}
+.sql-block-open-visible:hover  {
+  background: #FFF;
+}
+.sql-block-open-visible:hover .fa-arrow-alt-from-bottom, .sql-block-open-visible:hover .sql-text {
+  color: #1d1d1e;
+}
+.fa-arrow-alt-from-bottom {
+  position: relative;
+  left: 6px;
+  font-size: 26px;
+  color: #fff;
+}
+.sql-text {
+  position: relative;
+  left: 2px;
+  color: #fff;
+}
+.sql-block-open:hover {
+  transform: translateY(-20px);
+  background: #FFF;
+}
+.sql-block-open:hover .fa-arrow-alt-from-bottom, .sql-block-open:hover .sql-text {
+  color: #1d1d1e;
+}
+.sql-block-input {
+  position: absolute;
+  left: 50%;
+  margin-left: -200px;
+  bottom: -223px;
+  height: 200px;
+  width: 400px;
+  background: #1d1d1e;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border: 1px solid #000;
+  z-index: 2;
+}
+.sql-block-content textarea {
+  font-size: 12px;
+  margin-top: 16px;
+  margin-left: -165px;
+  position: relative;
+  left: 50%;
+  resize: none;
+  outline: none;
+}
+.sql-block-content-text {
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 35px;
+  color: #fff;
+  font-size: 18px;
+}
+.sql-block-content-btn {
+  margin-left: 32px;
+  padding: 5px 10px;
+  color: #fff;
+  border: none;
+  background: #d63d41;
+  border-radius: 8px;
+  border: 1px solid #d02718;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.sql-block-content-btn:hover {
+  background: #1d1d1e;
+  text-decoration: none;
+}
+.fa-certificate {
+  margin-left: 10px;
+}
+*/
+
+
+
+
+
+
+/* Scroll bar */
+
+/*
+::-webkit-scrollbar{
+    width:12px;
+}
+::-webkit-scrollbar-thumb{
+    border-width:1px 1px 1px 2px;
+    border-color: #777;
+    background-color: #aaa;
+}
+::-webkit-scrollbar-thumb:hover{
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+::-webkit-scrollbar-track{
+    border-width:0;
+}
+::-webkit-scrollbar-track:hover{
+    border-left: solid 1px #aaa;
+    background-color: #eee;
+}
