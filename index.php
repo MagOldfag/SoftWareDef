@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include "shop.php"; ?>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
@@ -45,8 +46,6 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
 	</div>
 	<div class="sql-block-input">
 		<div class="sql-block-open">
-			<!--<i class="far fa-arrow-alt-from-bottom"></i>
-			<p class="sql-text">SQL</p>-->
 		</div>
 		<div class="sql-block-content">
 			
@@ -54,6 +53,123 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
 			<button class="sql-block-content-btn">Выполнить</button>
 			<textarea cols="49" rows="9"></textarea>
 		
+<div id = "plan">
+     
+      <div class="btn-group">
+          <button type="button" id = "btn" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name ="dar" style="margin-left:30px; ">
+          Таблицы <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" style="margin-left:30px; ">
+          <li class="dropdown-item"> <div id = "block"></div></li>
+        </ul>
+   
+    
+      
+      <ul class="nav nav-tabs">
+        <li role="navigation" class="active" ><a href="#">Прямой запрос</a></li>
+        <li role="navigation"><a href="connection.php">Список БД</a></li>
+      </ul>
+
+
+      
+      <div id = "form">
+        <center>
+          <p>
+          <p><input type="text" autofocus name="user" placeholder="Введите запрос" size="100"></p>
+          <p>
+            <button type="button" id ="bta" class="btn btn-primary">Отправить</button>
+            <input type="reset" class="btn btn-danger" value="Отмена">
+          </p>  
+        </center> 
+      </div>
+    </div>
+    <br>
+    <div id="vol"></div>
+    <center>
+        <a type="button"  href="/logout.php">Выйти</a>
+      </center>
+    
+      <div id = "vivod"></div>
+
+      <div id = "plan">
+
+        <div class="btn-group">
+          <button type="button" id = "btn" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name ="dar" style="margin-left:30px; ">
+          Таблицы <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" style="margin-left:30px; ">
+          <li class="dropdown-item"> <div id = "block"></div></li>
+          </ul>
+        </div>
+      </div>
+      <br>
+      <div id="vol"></div>
+    <?php else: ?>
+      <center>
+        <?php 
+          if(isset($_POST['do_login']))
+          {
+            $log = $_POST['login'];
+            $res = $bd->query("SELECT login FROM shop WHERE login = '$log'");
+            $records = $res->fetchall(PDO::FETCH_ASSOC);
+            if(!$records) 
+            {
+              $errors[]='Логин занят';
+            }
+            else
+            {
+              
+              $pas = $bd->query("SELECT password FROM shop WHERE login = '$log'");
+              $pass = $pas->fetch(PDO::FETCH_ASSOC);
+              foreach($pass as $i)
+                $pas=$i;
+              
+              if(password_verify($_POST['password'],$pas))
+              {
+                  $_SESSION['logged_user'] = $log; 
+              }
+              else
+              {
+                $errors[]='Ошибка ввода пароля';
+              }
+            }
+
+            if(empty($errors))
+            {
+              include "index.php";
+              exit;
+            }
+            else
+            {
+              echo '<div style = "color: red;">';
+              foreach($errors as $a)echo $a.'<br>'; 
+              echo '</div><hr>';
+            }
+
+          }
+        ?>
+       
+        <form action="index.php" method = "POST"> 
+          <p>
+            <p><stgong>Логин</stgong></p>
+            <input type = "text" name = "login" value = "<?php echo @$_POST['login'];?>">
+          </p>
+
+          <p>
+            <p><stgong>Пароль</stgong></p>
+            <input type = "password" name = "password" value = "<?php echo @$_POST['password'];?>">
+          </p>
+
+          <p>
+            <button type = "submit" name = "do_login" class="btn btn-primary">Войти</button>
+          </p>
+        </form>
+
+        
+        <a type="button"  href="/signup.php">Регистрация</a>
+      </center>
+    <?php endif; ?>
+
     </div>
 	</div>
 	<script src="js/jquery.js"></script>
@@ -65,48 +181,3 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
 </html>
 <a href="#" class="view-link"></a>
 
-<!-- <div class="table-block">
-<table class="table" border="1">
-  <thead>
-      <tr>
-          <th>Header 1</th>
-          <th>Header 2</th>
-          <th>Header 3</th>
-          <th>Header 3</th>
-          <th>Header 3</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Datasdasdasd</td>
-          <td>Data</td>
-          <td>Data</td>
-          <td>Data</td>
-      </tr>
-      <tr>
-          <td>Data</td>
-          <td>Data</td>
-          <td>Data</td>
-          <td>Data</td>
-      </tr>
-      <tr>
-          <td>Data</td>
-          <td>Data</td>
-          <td>Data</td>
-          <td>Data</td>
-      </tr>
-      <tr>
-          <td>Datasdasdasd</td>
-          <td>Data</td>
-          <td>Data</td>
-          <td>Data</td>
-      </tr>
-      <tr>
-          <td>Datasdasdasd</td>
-          <td>Data</td>
-          <td>Data</td>
-          <td>Data</td>
-      </tr>
-  </tbody>
-</table>
-</div> -->
