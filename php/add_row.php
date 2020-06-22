@@ -33,7 +33,3 @@ try {
 } catch (PDOException $e) {
 	echo "Ошибка add_row" . $e->getMessage();
 }
-// $rez = $dbh->query($create_table_query);
-// if ($rez)
-// 	echo "Таблица `{$table_name}` успешно создана!";
-// else echo "Ошибка! Такая таблица уже есть или ошибка в заполнение(Автоинкрементом могут быть только int или double).";

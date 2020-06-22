@@ -3,7 +3,7 @@
     session_start();
 
     //Добавляем файл подключения к БД
-    require_once("dbconnect.php");
+    require_once("connection.php");
 
     //Объявляем ячейку для добавления ошибок, которые могут возникнуть при обработке формы.
     $_SESSION["error_messages"] = '';

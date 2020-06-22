@@ -5,6 +5,7 @@
 	$dbname = 'shop';
 	$user = 'root';
 	$password = '';
+	$address_site = "http://softwaredef-master1.2/";
 	try {
 		$dbh = new PDO("mysql:host={$host};", 'root', $password);
 	} catch (Throwable $e) {
