@@ -38,6 +38,7 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
 		<div class="navigation_database">
 			<a class="btn_create_database btn">Создать базу данных</a>
 			<?php require_once("php/connection.php");?>
+      <?php require_once("php/header.php");?>
 		</div>
 	</div>
 	<div class="right-block">
