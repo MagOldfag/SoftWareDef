@@ -1,47 +1,24 @@
 <?php
 	include "shop.php";
+	include "check_dict.php";
 	
-
-	function registr(array $records)
-	{		
-		if(trim ($_POST['login'])=='')
-		{
-			throw new Exception('Введите логин!');
-		}
-		if($_POST['password']=='') 
-		{
-			throw new Exception('Введите пароль!');
-		}
-		if($_POST['password2']=='') 
-		{
-			throw new Exception('Введите поворный пароль!');
-		}
-		if($_POST['password2'] != $_POST['password'])
-		{
-			throw new Exception('Повторный пароль введен не верно');
-		}
-		if($records)
-		{
-			throw new Exception('Пользователь с таким логином занят');
-		}
-
-		return true;
-	}
-
-	if(isset($_POST['do_login']))
+	if(isset($_POST['go']))
 	{
-		$log = $_POST['login'];
-		$res = $bd->query("SELECT login FROM shop WHERE login = '$log'");
+		$log = filter_var($_POST['log'],FILTER_SANITIZE_URL,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+		$res = $bd->query(" SELECT login FROM shop WHERE login ='$log'");
 		$records = $res->fetchall(PDO::FETCH_ASSOC);
-
+		
 		try{
 			registr($records);
-			$pas = password_hash($_POST['password'],PASSWORD_DEFAULT);
-			$res = $bd_xleb->query("insert into shop (login, password) values ('$log ', '$pas')");
+			$ches = password_hash(htmlspecialchars(filter_var($_POST['cheese'],FILTER_SANITIZE_URL,FILTER_SANITIZE_FULL_SPECIAL_CHARS)),PASSWORD_DEFAULT);
+			$res = $bd->query("insert into shop (login, password) values ('$log ', '$ches')");
 			include "index.php";
 			exit;	
-		}catch(Exception $e){		
+		}catch(Exception $e){	
+			header("HTTP/1.0 401");		
 			echo '<center><div style = "color: red;">'.$e->getMessage().'</div></center><hr>';
+			include "signup.php";
+			exit;
 		}
 	}
-?> 
+?>

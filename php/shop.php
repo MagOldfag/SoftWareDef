@@ -16,7 +16,6 @@
 	}  
  
 	catch(PDOException $exception){
-		//echo "Ошибка подключения: " . $exception->getMessage();
 		header("HTTP/1.0 501");
 		include "Errors_prog/501.php";
 		exit;

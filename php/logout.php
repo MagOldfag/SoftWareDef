@@ -1,8 +1,6 @@
 <?php 
-	/*session_start();
-	session_destroy();*/
-	setcookie("user", 10, time()-3600, "/");
-    //include "index.php";
-    //exit;
-    header('Location: /');
-?> 
+	$agent=$_SERVER['HTTP_USER_AGENT'];
+	setcookie("user", $agent, time()-3600, "/");
+	include "journal.php";
+	header('Location: /');
+?>
