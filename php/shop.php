@@ -1,8 +1,13 @@
 <?php
-	$host = "localhost";
+	/*$host = "localhost";
 	$db_name = "shop";
 	$db_name = "shop";
-	$username = "root";
+	$username = "root";*/
+	$fh = fopen("D:/test.txt", "r");
+    list($f1,$f2,$f3)= fscanf($fh, "%s %s %s");
+	$host = "$f1";
+	$db_name = "$f2";
+	$username = "$f3";
 	$password = "";
 	
 	try {
@@ -11,7 +16,10 @@
 	}  
  
 	catch(PDOException $exception){
-		echo "Ошибка подключения: " . $exception->getMessage();
+		//echo "Ошибка подключения: " . $exception->getMessage();
+		header("HTTP/1.0 501");
+		include "Errors_prog/501.php";
+		exit;
 	}
 	session_start();
 ?>

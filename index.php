@@ -32,6 +32,7 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
 <!-- /Yandex.Metrika counter -->
 </head>
 <body>
+  <?php if(isset($_COOKIE['user'])):?>
 </body>
 	<div class="left-block">
 		<h1 class="name-of-project">
@@ -106,7 +107,7 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
       <div id="vol"></div>
     <?php else: ?>
       <center>
-        <?php 
+        <?php/* 
           if(isset($_POST['do_login']))
           {
             $log = $_POST['login'];
@@ -130,7 +131,13 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
               }
               else
               {
-                $errors[]='Ошибка ввода пароля';
+                //$errors[]='Ошибка ввода пароля';
+                if($_POST['password']=='')  
+                {
+                  $errors[]='Введите пароль!';
+                }
+                else $errors[]='Неверно введен пароль';
+              }
               }
             }
 
@@ -147,9 +154,10 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
             }
 
           }
-        ?>
+        */?>
        
-        <form action="index.php" method = "POST"> 
+        <!--<form action="index.php" method = "POST">--> 
+          <form action="autorise.php" method = "POST"> 
           <p>
             <p><stgong>Логин</stgong></p>
             <input type = "text" name = "login" value = "<?php echo @$_POST['login'];?>">

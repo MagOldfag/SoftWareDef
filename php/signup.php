@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="dist/css/bootstrap.min.css" >	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<?php
+<?php/*
 	if(isset($_POST['do_signup']))
 	{
 		if(trim ($_POST['login'])=='') 
@@ -31,7 +31,10 @@
 			$password = password_hash($_POST['password'],PASSWORD_DEFAULT);
 			$res = $bd->query("insert into shop (login, password) values ('$login', '$password')");
 			echo '<div style = "color: green;">'."Регистрация прошла успешно!".'</div><hr>';
+			include "index.php";
+			exit;
 		}
+
 		else
 		{
 			echo '<div style = "color: red;">';
@@ -39,30 +42,30 @@
 			echo '</div><hr>';
 		}
 	}
-?>
+*/?>
 
 <center>
           <!-----------------------Форма заполения поля регитсрации----------------------------->
-<form action="/signup.php" method = "POST"> 
-
-	<p>
-		<p><stgong>Логин</stgong></p>
-		<input type = "text" name = "login" value = "<?php echo @$_POST['login'];?>">
-	</p>
-
-	<p>
-		<p><stgong>Пароль</stgong></p>
-		<input type = "password" name = "password" value = "<?php echo @$_POST['password'];?>">
-	</p>
-
-	<p>
-		<p><stgong>Введите пароль заного</stgong></p>
-		<input type = "password" name = "password2" value = "<?php echo @$_POST['password2'];?>">
-	</p>
-
-	<p>
-		<button type = "submit" name = "do_signup" class="btn btn-primary">Зарегистрироваться</button>
-	</p>
-</form>
+<form  action="/OBR_sign.php" method = "POST"> 
+		<div id = "log" class = "has-error">
+			<input type = "text"  placeholder="Введите логин" id ="log" name = "login" value = "<?php echo @$_POST['login'];?>">
+			<span id ="gly1" class = "glyphicon glyphicon-remove"></span>
+		</div>
+		<br>
+		<div id = "por" class = "has-error">
+			<input type = "password" placeholder="Введите пароль" id = "password" name = "password" value = "<?php echo @$_POST['password'];?>">
+			<span id ="gly2" class = "glyphicon glyphicon-remove"></span>
+		</div>
+		<br>
+		<div id = "por2" class = "has-error">
+			<input type = "password" placeholder="Введите повторный пароль" size="24" id = "password2" name = "password2" value = "<?php echo @$_POST['password2'];?>">
+			<span id ="gly3" class = "glyphicon glyphicon-remove"></span>
+		</div> 
+		<br>
+		<div>
+			<button id="but" disabled = "false" type = "submit" name = "go" class="btn btn-primary">Зарегистрироваться</button>
+		</div>
+	</form>
 </center>
 <script src="dist/css/bootstrap.min.js"></script> 
+<script src = "AutoReg.js"></script>
