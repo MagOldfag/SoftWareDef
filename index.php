@@ -3,11 +3,8 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<!--<title></title>-->
-	<!--<link rel="stylesheet" href="libs/overhang/overhang.css">-->
 	<link rel="stylesheet" href="fontawesome/css/all.css">
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700" rel="stylesheet">
-	<!--<link rel="stylesheet" href="css/style.css">-->
   
 <!-- Yandex.Metrika informer -->
 <a href="https://metrika.yandex.ru/stat/?id=56785741&amp;from=informer"
